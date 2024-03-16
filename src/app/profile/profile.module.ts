@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProfileComponent } from './profile.component';
+import { loadRemoteModule } from '@angular-architects/module-federation';
+
+import { destroyPlatform } from '@angular/core';
 
 
 @NgModule({
@@ -11,4 +14,8 @@ import { ProfileComponent } from './profile.component';
   exports:[ProfileComponent],
   bootstrap:[ProfileComponent]
 })
-export class ProfileModule { }
+export class ProfileModule { 
+  constructor(){
+    destroyPlatform()
+  }
+}

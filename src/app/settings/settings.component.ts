@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SettingsService } from './settings.service';
 
 @Component({
   selector: 'app-settings',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent {
+dataFromRemoteStore: any;
+constructor(private settingsService: SettingsService) {
+  settingsService.getHostState()
+}
 
 }
